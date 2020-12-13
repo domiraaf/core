@@ -5,7 +5,7 @@
 
 #include <ESP8266WiFi.h>
 
-#include "scheduler.h"
+#include "scheduler/scheduler-v1.0.0.h"
 
 #ifndef STASSID
 #define STASSID "Janssennetwerk"

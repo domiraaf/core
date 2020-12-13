@@ -4,9 +4,8 @@
  */
 
 #include <vector>
-#include "bitflag_enum.h"
 
-namespace DomoRaaf {
+namespace DomiRaaf {
     namespace Scheduler {
 
 /**
@@ -39,14 +38,19 @@ namespace DomoRaaf {
         class Task {
         public:
             /**
-             * The interval for the task, in ms
+             * The wake interval for the task, in ms
              */
-            virtual int interval;
+            int interval;
+
+            /**
+             * The loop interval for the task, in ms
+             */
+            int loop_interval;
 
             /**
              * Options for the task. See the TaskMode documentation
              */
-            virtual TaskMode mode;
+            TaskMode mode;
 
             /**
              * Setup function is executed once when the Wemos boots. May contain a longer running function, but this will
@@ -104,14 +108,14 @@ namespace DomoRaaf {
 
             TaskReturn loop();
 
-            void addStep(SeqTReturn (*step)());
+            void addStep(SeqTReturn (* step)());
         };
 
         /**
          * Add a task to the scheduler
          * @param task
          */
-        void add(Task *task);
+        void add(Task* task);
 
         /**
          * Execute the setup

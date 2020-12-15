@@ -2,15 +2,17 @@
  * Arduino scheduler. Supports deep sleep, wifi-enabled/disabled runs,
  * simulated multithreading and sequential execution.
  */
+#ifndef CORE_SCHEDULER_H
+#define CORE_SCHEDULER_H
 
 #include <vector>
 
 namespace DomiRaaf {
     namespace Scheduler {
 
-/**
- * Options are implemented as a bitmask. Use | to combine.
- */
+        /**
+         * Options are implemented as a bitmask. Use | to combine.
+         */
         enum TaskMode {
             /**
              * Default, simple task
@@ -128,3 +130,5 @@ namespace DomiRaaf {
         void loop();
     }
 }
+
+#endif
